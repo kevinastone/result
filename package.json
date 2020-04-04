@@ -1,6 +1,6 @@
 {
   "name": "@kevinastone/result",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "main": "dist/index.js",
   "types": "dist/index",
   "license": "MIT",
@@ -13,59 +13,31 @@
   },
   "scripts": {
     "build": "tsc",
-    "format": "prettier --write 'src/**/*.{js,ts,tsx}'",
-    "lint": "tsc && xo",
+    "clean": "rimraf dist",
+    "format": "prettier --write '{tests,src}/**/*.{js,jsx,ts,tsx}'",
+    "lint:tsc": "tsc",
+    "lint:eslint": "pnp-eslint .",
+    "lint": "yarn run lint:tsc && yarn run lint:eslint",
+    "prepublish": "npm run clean && npm run build",
     "test": "jest"
   },
   "files": [
     "dist/**/*"
   ],
-  "xo": {
+  "eslintConfig": {
     "extends": [
-      "xo-typescript",
-      "xo/browser",
-      "xo/esnext",
-      "plugin:jest/recommended"
-    ],
-    "extensions": [
-      "ts",
-      "tsx"
-    ],
-    "plugins": [
-      "jest"
-    ],
-    "envs": [
-      "node",
-      "jest"
-    ],
-    "space": true,
-    "prettier": true,
-    "rules": {
-      "no-useless-constructor": "off",
-      "unicorn/string-content": "off",
-      "unicorn/prevent-abbreviations": "off",
-      "@typescript-eslint/indent": "off",
-      "@typescript-eslint/no-throw-literal": "off",
-      "@typescript-eslint/no-unsafe-call": "off",
-      "@typescript-eslint/no-unsafe-return": "off",
-      "@typescript-eslint/prefer-readonly-parameter-types": "off",
-      "@typescript-eslint/quotes": "off"
-    }
+      "@kevinastone/eslint-config/base"
+    ]
   },
   "devDependencies": {
+    "@kevinastone/eslint-config": "^0.2.0",
     "@types/jest": "^25.2.1",
-    "@typescript-eslint/eslint-plugin": "^2.10.0",
-    "@typescript-eslint/parser": "^2.10.0",
-    "eslint-config-prettier": "^6.0.0",
-    "eslint-config-xo": "^0.29.1",
-    "eslint-config-xo-typescript": "^0.27.0",
-    "eslint-plugin-jest": "^23.1.1",
-    "eslint-plugin-prettier": "^3.1.0",
+    "eslint": "^6.8.0",
     "jest": "^25.2.7",
     "jest-matcher-utils": "^25.2.7",
     "prettier": "^2.0.2",
+    "rimraf": "^3.0.2",
     "ts-jest": "^25.3.1",
-    "typescript": "^3.8",
-    "xo": "^0.28.2"
+    "typescript": "^3.8"
   }
 }
