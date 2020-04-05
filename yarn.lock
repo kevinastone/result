@@ -380,10 +380,10 @@
     "@types/yargs" "^15.0.0"
     chalk "^3.0.0"
 
-"@kevinastone/eslint-config@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@kevinastone/eslint-config/-/eslint-config-0.2.0.tgz#562672b5f3912d31b6e6e7a4f9cf25adcd72b4d5"
-  integrity sha512-WRE1MLX/VEfD+XWF9uYmiGqAlLIwNr8DSWeWz4OEFN3NrWDnfZnMPZgAe5+eYujPlJEkVz36j63bibCgQpyZfg==
+"@kevinastone/eslint-config@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@kevinastone/eslint-config/-/eslint-config-0.2.1.tgz#d1b30060de9be3167f69c281d602aafbb5de57bd"
+  integrity sha512-Ut3QvQ0qGpmGyKpkAjU8nc3z42JFxKg4k3E+k8RMFY0JoIEOshILR/g6kFEjHJcUHOiZlY13c56arnEa83a93g==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^2.26.0"
     "@typescript-eslint/parser" "^2.26.0"

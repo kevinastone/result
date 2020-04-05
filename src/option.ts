@@ -1,4 +1,4 @@
-/* eslint @typescript-eslint/generic-type-naming: off */
+/* eslint import/no-cycle: off */
 
 import {Result, Ok, Err} from './result';
 
@@ -280,6 +280,7 @@ export function optionify<T>(val: T | null | undefined): Option<T> {
 
 type OptionArray<T> = {[P in keyof T]: Option<T[P]>};
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function join<T1, T extends any[]>(
   opt1: Option<T1>,
   ...opts: OptionArray<T>

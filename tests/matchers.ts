@@ -1,7 +1,6 @@
 /* istanbul ignore file */
 /* eslint @typescript-eslint/generic-type-naming: off, @typescript-eslint/explicit-function-return-type: off */
-/* eslint import/no-extraneous-dependencies: off */
-/* eslint no-redeclare: off */
+/* eslint @typescript-eslint/no-namespace: off */
 
 import {printExpected, printReceived} from 'jest-matcher-utils';
 import {Option, Result} from '../src';

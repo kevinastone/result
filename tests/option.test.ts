@@ -1,10 +1,8 @@
-/* eslint-disable max-nested-callbacks */
-
 import {optionify, join, Option, Some, None} from '../src/option';
 import expect from './matchers';
 
 function* range(end: number, start = 0): IterableIterator<number> {
-  for (let i = start; i < end; i++) {
+  for (let i = start; i < end; i += 1) {
     yield i;
   }
 }

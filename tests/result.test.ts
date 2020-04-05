@@ -1,5 +1,3 @@
-/* eslint-disable max-nested-callbacks */
-
 import {resultify, asResult, Result, Ok, Err} from '../src/result';
 import expect from './matchers';
 
@@ -260,7 +258,7 @@ describe('unwrapOr', () => {
   });
 
   test('Err => Or', () => {
-    expect(new Err<number, any>(undefined).unwrapOr(3)).toBe(3);
+    expect(new Err<number, unknown>(undefined).unwrapOr(3)).toBe(3);
   });
 });
 

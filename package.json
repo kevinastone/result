@@ -12,13 +12,13 @@
     "url": "https://github.com/kevinastone/result"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc -p tsconfig.dist.json",
     "clean": "rimraf dist",
     "format": "prettier --write '{tests,src}/**/*.{js,jsx,ts,tsx}'",
     "lint:tsc": "tsc",
-    "lint:eslint": "pnp-eslint .",
+    "lint:eslint": "pnp-eslint . --ext .js,.ts,.tsx",
     "lint": "yarn run lint:tsc && yarn run lint:eslint",
-    "prepublish": "npm run clean && npm run build",
+    "prepare": "npm run clean && npm run build",
     "test": "jest"
   },
   "files": [
@@ -30,7 +30,7 @@
     ]
   },
   "devDependencies": {
-    "@kevinastone/eslint-config": "^0.2.0",
+    "@kevinastone/eslint-config": "^0.2.1",
     "@types/jest": "^25.2.1",
     "eslint": "^6.8.0",
     "jest": "^25.2.7",

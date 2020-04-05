@@ -1,4 +1,4 @@
-/* eslint @typescript-eslint/generic-type-naming: off */
+/* eslint import/no-cycle: off */
 
 import {Some, None, Option} from './option';
 
@@ -261,6 +261,7 @@ export async function resultify<T, E>(
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function asResult<T, E, A extends any[]>(
   fn: (...args: A) => T,
   ...args: A
