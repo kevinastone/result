@@ -232,6 +232,26 @@ describe('xor', () => {
   });
 });
 
+describe('zip', () => {
+  test('Some zipped to a Some to be Some', () => {
+    const result = new Some(1).zip(new Some(2));
+    expect(result).toBeSome();
+    expect(result).toUnwrapEqual([1, 2]);
+  });
+
+  test('Some zipped to a None to be None', () => {
+    expect(new Some(1).zip(new None())).toBeNone();
+  });
+
+  test('None zipped to a Some to be None', () => {
+    expect(new None<number>().zip(new Some(2))).toBeNone();
+  });
+
+  test('None zipped to a None to be None', () => {
+    expect(new None<number>().zip(new None<number>())).toBeNone();
+  });
+});
+
 describe('okOr', () => {
   test('Some => Ok', () => {
     expect(new Some(undefined).okOr('error')).toBeOk();

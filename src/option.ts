@@ -19,6 +19,7 @@ export interface Option<T> {
   orElse(fn: () => Option<T>): Option<T>;
 
   xor(opt: Option<T>): Option<T>;
+  zip<U>(opt: Option<U>): Option<[T, U]>;
 
   okOr<E>(err: E): Result<T, E>;
   okOrElse<E>(fn: () => E): Result<T, E>;
@@ -97,6 +98,10 @@ export class Some<T> extends BaseSome<T> implements Option<T> {
       () => new Some(this._value),
       () => new None<T>(),
     );
+  }
+
+  zip<U>(opt: Option<U>): Option<[T, U]> {
+    return opt.andThen(u => new Some([this._value, u]));
   }
 
   okOr<E>(_: E): Result<T, E> {
@@ -207,6 +212,10 @@ export class None<T> implements Option<T> {
 
   xor(opt: Option<T>): Option<T> {
     return opt;
+  }
+
+  zip<U>(opt: Option<U>): Option<[T, U]> {
+    return new None();
   }
 
   okOr<E>(err: E): Result<T, E> {
