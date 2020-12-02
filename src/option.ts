@@ -294,8 +294,17 @@ export function join<T1, T extends any[]>(
   opt1: Option<T1>,
   ...opts: OptionArray<T>
 ): Option<[T1, ...T[]]> {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-return,
   return opts.reduce(
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-assignment
     (acc, opt) => acc.andThen(arr => opt.map(val => [...arr, val])),
     opt1.map(val => [val]),
   );
+}
+
+export function zip2<T1, T2>(
+  opt1: Option<T1>,
+  opt2: Option<T2>,
+): Option<[T1, T2]> {
+  return opt1.andThen(val1 => opt2.map(val2 => [val1, val2]));
 }
