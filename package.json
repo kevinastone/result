@@ -30,7 +30,7 @@
     ]
   },
   "devDependencies": {
-    "@kevinastone/eslint-config": "^0.3.0",
+    "@kevinastone/eslint-config": "^0.3.1",
     "@types/jest": "^25.2.1",
     "eslint": "^6.8.0",
     "jest": "^25.2.7",
